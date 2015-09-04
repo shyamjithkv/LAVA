@@ -1,10 +1,9 @@
 metadata:
     format: Lava-Test Test Definition 1.0
-    name: smoke-tests-basic
-    description: "Basic system test command for Linaro Ubuntu images. The test runs basic commands
-                  like pwd, uname, vmstat, ifconfig, lscpu, lsusb and lsb_release."
+    name:lp5523 LED Driver Test
+    description: "Test for checking entry points of lp5523 led driver."
     maintainer:
-        - botao.sun@linaro.org
+        - shyamjith@acsiatech.com
     os:
         - ubuntu
     scope:
@@ -16,12 +15,14 @@ metadata:
         - vexpress-a9
         - vexpress-tc2
         - juno
+        - qemu
+        - kvm
 
 run:
     steps:
-        - lava-test-case linux-linaro-ubuntu-cd /sys/devices/i2c-1/1-0030 --shell cd /sys/devices/i2c-1/1-0030
-        - lava-test-case linux-linaro-ubuntu-echo "load" > engine3_mode --shell echo "load" > engine3_mode
-        - lava-test-case linux-linaro-ubuntu-echo "9d80400004ff05ff437f0000" > engine3_load --shell echo "9d80400004ff05ff437f0000" > engine3_load
-        - lava-test-case linux-linaro-ubuntu-echo "111111111" > engine3_leds --shell echo "111111111" > engine3_leds
-        - lava-test-case linux-linaro-ubuntu-echo "run" > engine3_mode --shell echo "run" > engine3_mode
+        - "cd /sys/devices/i2c-1/1-0030"
+        - lava-test-case Test1-echo "load" > engine3_mode --shell echo "load" > engine3_mode
+        - lava-test-case Test2-echo "9d80400004ff05ff437f0000" > engine3_load --shell echo "9d80400004ff05ff437f0000" > engine3_load
+        - lava-test-case Test3-echo "111111111" > engine3_leds --shell echo "111111111" > engine3_leds
+        - lava-test-case Test4-echo "run" > engine3_mode --shell echo "run" > engine3_mode
       
