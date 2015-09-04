@@ -1,6 +1,6 @@
 metadata:
     format: Lava-Test Test Definition 1.0
-    name:lp5523 LED Driver Test
+    name: lp5523 LED Driver Test
     description: "Test for checking entry points of lp5523 led driver."
     maintainer:
         - shyamjith@acsiatech.com
