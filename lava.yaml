@@ -20,7 +20,7 @@ metadata:
 
 run:
     steps:
-        - "cd /sys/devices/i2c-1/1-0030"
+        - cd /sys/devices/i2c-1/1-0030
         - lava-test-case Test1-echo "load" > engine3_mode --shell echo "load" > engine3_mode
         - lava-test-case Test2-echo "9d80400004ff05ff437f0000" > engine3_load --shell echo "9d80400004ff05ff437f0000" > engine3_load
         - lava-test-case Test3-echo "111111111" > engine3_leds --shell echo "111111111" > engine3_leds
