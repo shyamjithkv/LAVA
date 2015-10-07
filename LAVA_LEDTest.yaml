@@ -1,0 +1,29 @@
+metadata:
+    format: Lava-Test Test Definition 1.0
+    version : "1.0"
+    name: ALTAS LEDTest-baics
+    version: "1.0"
+    description: "Basic system test command for Linaro Ubuntu images on Pandaboard-es. The test runs basic command to
+                  controll LED driver parameters."
+    maintainer:
+        - shyamjith@acsiatech.com
+    os:
+        - ubuntu
+    scope:
+        - functional
+    devices:
+        - panda
+        - panda-es
+
+run:
+    steps:
+        - cd /sys/class/leds/pandaboard\:\:status2/
+        - lava-test-case Brightness-controll-ON-test --shell echo 1 > brightness
+        - lava-test-case Brightness-controll-OFF-test --shell echo 0 > brightness
+        - lava-test-case Trigger-controll-TOGGLE-test --shell echo timer > trigger
+        - lava-test-case Trigger-controll-CPU-test --shell echo cpu0 > trigger
+        - lava-test-case Brightness-controll-heartbeat-test --shell echo heartbeat > trigger
+        
+        
+        
+        
